@@ -17,6 +17,9 @@ class test_tuner(Tuner):
     def __init__(self, arg1):
         print(arg1)
 
+    def update_search_space(self, search_space):
+        print("pelapela")
+
     def receive_trial_result(self, parameter_id, parameters, value):
         '''
         parameter_id: int
