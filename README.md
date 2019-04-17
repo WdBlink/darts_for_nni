@@ -1,2 +1,2 @@
 # darts_for_nni
-We are trying to build darts in ini
+We are trying to build darts in i
