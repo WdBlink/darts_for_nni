@@ -1,0 +1,24 @@
+authorName: Occam
+experimentName: test_darts
+trialConcurrency: 1 # we only need 1 trial we don't run more than one 
+maxExecDuration: 1000h
+maxTrialNum: 1
+trainingServicePlatform: local
+useAnnotation: False
+tuner:
+    codeDir: /home/apex/DeamoV/github/darts_for_nni
+    classFileName: custom_tuner.py
+    className: custom_tuner
+    # Any parameter need to pass to your tuner class __init__ constructor
+    # can be specified in this optional classArgs field, for example 
+    classArgs:
+        model_architecture_path: "path"
+        primitives: ['none', 'max_pool_3x3', 'avg_pool_3x3', 'skip_connect', 'sep_conv_3x3', 'sep_conv_5x5', 'dil_conv_3x3', 'dil_conv_5x5']
+        dataset_path: "/home/apex/DeamoV/github/darts_for_nni/darts_source/data"
+        output_path: "/home/apex/tmp/testoutput"
+        # this is to output all the log and script
+        # data_type: "path"
+trial:
+    command: "python3 train_search.py"
+    codeDir: "/home/apex/DeamoV/github/darts_for_nni/darts_source/cnn"
+    gpuNum: 2
